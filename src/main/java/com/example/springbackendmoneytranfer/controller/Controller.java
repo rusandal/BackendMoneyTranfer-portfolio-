@@ -2,18 +2,12 @@ package com.example.springbackendmoneytranfer.controller;
 
 import com.example.springbackendmoneytranfer.model.Confirm;
 import com.example.springbackendmoneytranfer.model.Transfer;
-import com.example.springbackendmoneytranfer.service.Service;
-import org.apache.catalina.connector.Request;
+import com.example.springbackendmoneytranfer.service.ServiceTransfer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,20 +16,20 @@ import java.util.Map;
 @CrossOrigin(origins = "https://serp-ya.github.io", maxAge = 3600)
 @RequestMapping("/")
 public class Controller {
-    private Service service;
+    private ServiceTransfer service;
 
-    public Controller(Service service) {
+    public Controller(ServiceTransfer service) {
         this.service = service;
     }
 
     @RequestMapping(value = "transfer", method = RequestMethod.POST)
     public ResponseEntity<Object> postTransfer(@RequestBody Transfer transfer){
-        return service.addTransfer(transfer);
+        ResponseEntity<Object> responseEntity = service.addTransfer(transfer);
+        return responseEntity;
     }
 
     @RequestMapping(value = "confirmOperation", method = RequestMethod.POST)
     public ResponseEntity<Object> confirmTransfer(@RequestBody Confirm confirmParam){
-        System.out.println(confirmParam);
         return service.confirmTransfer(confirmParam);
     }
 
