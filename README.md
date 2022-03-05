@@ -15,4 +15,4 @@ REST ceрвис предоставляющий интерфейс для пер�
 Исходники содержат Dockerfile позволяющий превратить прижение в Docker контейнер
 
 ## Используемые технологии
-SpringBootWeb, @RestController, @RequestBody, Docker, MockMvc, Lombok
+SpringBootWeb, @RestController, Docker, MockMvc, Lombok
