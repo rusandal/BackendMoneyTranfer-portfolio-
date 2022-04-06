@@ -35,7 +35,6 @@ public class ServiceTransfer {
     }
 
     public ResponseEntity<Object> confirmTransfer(Confirm confirm) {
-        //Сервис перестал отдавать transferId, пришлось закомитить
         //Transfer transfer = transferRepository.getTransfers().get(confirm.getOperationId());
         /*if (transfer != null) {
             throw new NullPointerException("OperationId is invalid");

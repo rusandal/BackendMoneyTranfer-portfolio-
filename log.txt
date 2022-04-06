@@ -48,4 +48,6 @@ Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=1
 !NEW 2022-02-27T23:52:40.061442100 Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=null, statusTransfer=NEW, code=null)
 !NEW 2022-02-28T10:17:11.824438 Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=null, statusTransfer=NEW, code=null)
 !NEW 2022-02-28T13:02:35.400034 Transfer(cardFromNumber=null, cardFromValidTill=null, cardFromCVV=null, cardToNumber=null, amount=null, operationId=null, statusTransfer=NEW, code=null)
+!NEW 2022-04-06T22:36:59.294056400 Transfer(cardFromNumber=null, cardFromValidTill=null, cardFromCVV=null, cardToNumber=null, amount=null, operationId=null, statusTransfer=NEW, code=null)
+!NEW 2022-04-06T23:35:54.823361500 Transfer(cardFromNumber=null, cardFromValidTill=null, cardFromCVV=null, cardToNumber=null, amount=null, operationId=null, statusTransfer=NEW, code=null)
 !
