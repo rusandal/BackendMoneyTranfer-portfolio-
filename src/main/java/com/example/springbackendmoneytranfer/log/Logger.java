@@ -14,7 +14,7 @@ public class Logger {
     private static final File FILE = new File("log.txt");
 
     public static void logger (Transfer transfer, String message){
-        try (FileWriter fileWriter = new FileWriter(FILE, true)){
+        try (FileWriter fileWriter = new FileWriter(getFile(), true)){
             if(transfer.getStatusTransfer().equals(Transfer.StatusTransfer.NEW))
             {
                 fileWriter.write("NEW "+LocalDateTime.now()+" "+transfer.toString());
@@ -33,5 +33,8 @@ public class Logger {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static File getFile(){
+        return FILE;
     }
 }

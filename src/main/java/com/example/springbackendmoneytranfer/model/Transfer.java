@@ -35,9 +35,4 @@ public class Transfer {
         CONFIRMEDTRANSFER,
         FAILEDTRANSFER
     }
-
-    /*public void setCode(){
-        Random random = new Random();
-        this.code = random.nextInt(MAX_CODE - MIN_CODE) + MIN_CODE;
-    }*/
 }
