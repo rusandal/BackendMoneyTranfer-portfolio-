@@ -1,14 +1,7 @@
 package com.example.springbackendmoneytranfer.model;
 
 import lombok.Data;
-import org.springframework.stereotype.Repository;
 import org.springframework.validation.annotation.Validated;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
-import java.util.List;
-import java.util.Random;
 
 @Data
 @Validated
@@ -30,14 +23,9 @@ public class Transfer {
         private String currency;
     }
 
-    public enum StatusTransfer{
+    public enum StatusTransfer {
         NEW,
         CONFIRMEDTRANSFER,
         FAILEDTRANSFER
     }
-
-    /*public void setCode(){
-        Random random = new Random();
-        this.code = random.nextInt(MAX_CODE - MIN_CODE) + MIN_CODE;
-    }*/
 }

@@ -23,35 +23,32 @@ public class Controller {
     }
 
     @RequestMapping(value = "transfer", method = RequestMethod.POST)
-    public ResponseEntity<Object> postTransfer(@RequestBody Transfer transfer){
+    public ResponseEntity<Object> postTransfer(@RequestBody Transfer transfer) {
         ResponseEntity<Object> responseEntity = service.addTransfer(transfer);
         return responseEntity;
     }
 
     @RequestMapping(value = "confirmOperation", method = RequestMethod.POST)
-    public ResponseEntity<Object> confirmTransfer(@RequestBody Confirm confirmParam){
+    public ResponseEntity<Object> confirmTransfer(@RequestBody Confirm confirmParam) {
         return service.confirmTransfer(confirmParam);
     }
 
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    Map<String, Object> handleRuntimeException(RuntimeException e){
+    Map<String, Object> handleRuntimeException(RuntimeException e) {
         return addExceptionMessage(e.getMessage());
     }
 
     @ExceptionHandler({IllegalArgumentException.class, IOException.class, NullPointerException.class, MissingServletRequestParameterException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    Map<String, Object> handleIllegalArgumentException(Exception e){
+    Map<String, Object> handleIllegalArgumentException(Exception e) {
         return addExceptionMessage(e.getMessage());
     }
 
-    private Map<String, Object> addExceptionMessage(String message){
+    private Map<String, Object> addExceptionMessage(String message) {
         Map<String, Object> answerObject = new HashMap<>();
         answerObject.put("id", 0);
         answerObject.put("message", message);
         return answerObject;
     }
-
-
-
 }

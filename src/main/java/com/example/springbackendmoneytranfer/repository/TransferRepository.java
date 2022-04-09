@@ -1,6 +1,5 @@
 package com.example.springbackendmoneytranfer.repository;
 
-import com.example.springbackendmoneytranfer.log.Logger;
 import com.example.springbackendmoneytranfer.model.Transfer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,18 +14,18 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TransferRepository {
     private Map<String, Transfer> transfers = new ConcurrentHashMap<>();
 
-    public String addTransferToList (Transfer transfer){
+    public String addTransferToMap(Transfer transfer) {
         String newOperationId = UUID.randomUUID().toString();
         transfer.setOperationId(newOperationId);
         transfers.put(newOperationId, transfer);
         return newOperationId;
     }
 
-    public Map<String, Transfer> getTransfers(){
+    public Map<String, Transfer> getTransfers() {
         return transfers;
     }
 
-    public void removeTransferFromMap(String operationId){
+    public void removeTransferFromMap(String operationId) {
         transfers.remove(operationId);
     }
 }
