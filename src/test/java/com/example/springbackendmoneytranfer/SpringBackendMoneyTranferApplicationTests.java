@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -117,16 +118,14 @@ class SpringBackendMoneyTranferUnitTest{
     @ParameterizedTest
     @EnumSource(Transfer.StatusTransfer.class)
     public void testLogger (Transfer.StatusTransfer statusTransfer) throws Exception{
-        //MockedStatic<Logger> mockStaticlogger = Mockito.mockStatic(Logger.class);
-        //mockStaticlogger.when(Logger::getFile).thenReturn(new File("testlog.txt"));
+        MockedStatic<Logger> mockStaticlogger = Mockito.mockStatic(Logger.class);
+        mockStaticlogger.when(Logger::getFile).thenReturn(new File("testlog.txt"));
         transfer.setStatusTransfer(statusTransfer);
         Logger.logger(transfer, "fail");
         BufferedReader br = new BufferedReader(new FileReader("log.txt"));
         String line= br.readLine();
         System.out.println(statusTransfer.toString());
         Assertions.assertTrue(line.contains(statusTransfer.toString()));
-
-
     }
 }
 
