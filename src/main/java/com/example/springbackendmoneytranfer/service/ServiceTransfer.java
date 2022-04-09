@@ -1,4 +1,5 @@
 package com.example.springbackendmoneytranfer.service;
+
 import com.example.springbackendmoneytranfer.model.Confirm;
 import com.example.springbackendmoneytranfer.model.Transfer;
 import com.example.springbackendmoneytranfer.repository.TransferRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Data
 @AllArgsConstructor
@@ -25,12 +27,12 @@ public class ServiceTransfer {
         if (transferRepository.getTransfers().containsKey(newOperationId)) {
             transfer.setStatusTransfer(Transfer.StatusTransfer.NEW);
             //transfer.setCode();
-            log.info(transfer+" status transfer:NEW");
+            log.info(transfer + " status transfer:NEW");
             //LoggerOld.logger(transfer, " ");
             answerObject.put("operationid", newOperationId);
             return ResponseEntity.ok().body(answerObject);
         } else {
-            log.error("operationid:"+newOperationId+"is not added");
+            log.error("operationid:" + newOperationId + "is not added");
             throw new IllegalArgumentException();
         }
     }
@@ -42,7 +44,7 @@ public class ServiceTransfer {
         } else if(confirm.getCode() != (transfer.getCode())){
         //Front Отдает только код 0000
         else */
-        if(!confirm.getCode().equals("0000")){
+        if (!confirm.getCode().equals("0000")) {
             /*Front не отдает transferID
             transfer.setStatusTransfer(Transfer.StatusTransfer.FAILEDTRANSFER);
             Logger.logger(transfer, "Code is invalid!");*/

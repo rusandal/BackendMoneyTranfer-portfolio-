@@ -80,3 +80,32 @@ Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=1
 2022-04-09 21:09:18 ERROR ServiceTransfer:49 - Bad confirm code
 2022-04-09 21:10:19 ERROR ServiceTransfer:33 - operationid:11111111-1111-1111-1111-111111111111is not added
 2022-04-09 21:10:19 INFO  ServiceTransfer:60 - Transfer confirmed
+2022-04-09 22:06:37 ERROR ServiceTransfer:33 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 22:09:16 ERROR ServiceTransfer:33 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 22:35:50 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 22:36:17 INFO  ServiceTransfer:29 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 22:37:26 INFO  ServiceTransfer:29 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 22:41:55 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 22:45:56 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 22:46:35 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 22:58:03 ERROR ServiceTransfer:50 - Bad confirm code
+2022-04-09 23:11:07 ERROR ServiceTransfer:50 - Bad confirm code
+2022-04-09 23:11:07 INFO  ServiceTransfer:61 - Transfer confirmed
+2022-04-09 23:11:07 INFO  ServiceTransfer:29 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 23:11:07 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 23:12:22 ERROR ServiceTransfer:50 - Bad confirm code
+2022-04-09 23:12:22 INFO  ServiceTransfer:61 - Transfer confirmed
+2022-04-09 23:12:23 INFO  ServiceTransfer:29 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 23:12:23 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 23:14:12 ERROR ServiceTransfer:50 - Bad confirm code
+2022-04-09 23:14:12 INFO  ServiceTransfer:61 - Transfer confirmed
+2022-04-09 23:14:12 INFO  ServiceTransfer:29 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 23:14:12 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 23:15:28 ERROR ServiceTransfer:50 - Bad confirm code
+2022-04-09 23:15:28 INFO  ServiceTransfer:61 - Transfer confirmed
+2022-04-09 23:15:28 INFO  ServiceTransfer:29 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 23:15:28 ERROR ServiceTransfer:34 - operationid:11111111-1111-1111-1111-111111111111is not added
+2022-04-09 23:17:59 ERROR ServiceTransfer:51 - Bad confirm code
+2022-04-09 23:17:59 INFO  ServiceTransfer:62 - Transfer confirmed
+2022-04-09 23:17:59 INFO  ServiceTransfer:30 - Transfer(cardFromNumber=1111111111111111, cardFromValidTill=12/23, cardFromCVV=123, cardToNumber=2222222222222222, amount=Transfer.Amount(value=1000, currency=RUR), operationId=11111111-1111-1111-1111-111111111111, statusTransfer=NEW, code=null) status transfer:NEW
+2022-04-09 23:17:59 ERROR ServiceTransfer:35 - operationid:11111111-1111-1111-1111-111111111111is not added
