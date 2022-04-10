@@ -1,7 +1,9 @@
 package com.example.springbackendmoneytranfer;
+import com.example.springbackendmoneytranfer.model.Confirm;
 import com.example.springbackendmoneytranfer.model.Transfer;
 import com.example.springbackendmoneytranfer.repository.TransferRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -9,19 +11,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
+import org.testcontainers.containers.GenericContainer;
+
 import java.util.HashMap;
 import java.util.Map;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 class SpringBackendMoneyTransferUnitTest {
 
-    static Transfer transfer = new Transfer();
-    static Map<String, Object> answerObject = new HashMap<>();
+    private static Transfer transfer = new Transfer();
+    private static Confirm confirm = new Confirm();
+    private static Map<String, Object> answerObject = new HashMap<>();
+    private GenericContainer<?> myapp = new GenericContainer<>("my_transfer:latest")
+            .withExposedPorts(5500);
 
     @Autowired
     private MockMvc mockMvc;
@@ -29,6 +39,8 @@ class SpringBackendMoneyTransferUnitTest {
     private ObjectMapper objectMapper;
     @MockBean
     private TransferRepository repository;
+    @Autowired
+    private TestRestTemplate testRestTemplate;
 
     @BeforeAll
     static void createTransferAndConfirm() {
@@ -42,6 +54,7 @@ class SpringBackendMoneyTransferUnitTest {
         transfer.setAmount(amount);
         transfer.setOperationId("11111111-1111-1111-1111-111111111111");
         answerObject.put("operationid", "11111111-1111-1111-1111-111111111111");
+        confirm.setCode("0000");
     }
 
     @Test
@@ -105,5 +118,15 @@ class SpringBackendMoneyTransferUnitTest {
                         .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(status().isBadRequest());
+    }
+    @Test
+    public void testContainer(){
+        myapp.start();
+        //String port = myapp.getMappedPort(5500).toString();
+        ResponseEntity<String> fromApp = testRestTemplate.postForEntity("http://localhost:5500/transfer", transfer, String.class);
+        Assert.assertEquals(fromApp.getStatusCode(), HttpStatus.OK);
+        Assert.assertTrue(!fromApp.getBody().contains("message"));
+        ResponseEntity<String> fromApp2 = testRestTemplate.postForEntity("http://localhost:5500/confirmOperation", confirm, String.class);
+        Assert.assertTrue(fromApp2.getBody().contains("this operation id"));
     }
 }
